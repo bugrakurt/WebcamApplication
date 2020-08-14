@@ -1,0 +1,24 @@
+<!-- Çekilen fotoğrafı burada ekranda göstereceğim. İlk olarak *ngIf yapısını kullanarak
+     bir koşul oluşturdum. 'photo' değişkeninin içerisinde herhangi bir şey bulunmadığı sürece
+     bu kod bloğu çalışmayacak. Fotoğraf çekildiği ve 'photo' değişkeninin içinde bir şey bulunmaya
+     başladığı anda bu kod bloğu çalışacak ve fotoğraf ekranda gösterilecek. -->
+<div class="container" *ngIf="photo">
+    <div class="col">
+        <div class="row justify-content-center">
+            <h4>Fotoğrafınız:</h4>
+        </div>
+        <div class="row justify-content-center">
+            <div class="snapshot">
+                <img [src]="photo.imageAsDataUrl" />
+            </div>
+        </div>
+
+        <!-- Buradaki buton ts dosyasındaki 'clearImg()' metotunu çağırarak fotoğrafı silecek. 
+           *ngIf kullanarak verdiğim koşul sayesinde fotoğraf çekilmediği sürece bu buton ekranda görünmeyecek. -->
+        <div class="row">
+            <div class="container">
+                <button class="btn btn-danger mx-auto d-block p-2" (click)="clearImg();">Fotoğrafı Sil</button>
+            </div>
+        </div>
+    </div>
+</div>
